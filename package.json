@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "parcel serve src/index.js --no-hmr",
+    "build": "parcel build src/index.js --no-minify"
+  }
+}
