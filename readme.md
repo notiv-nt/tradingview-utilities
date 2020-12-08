@@ -9,7 +9,8 @@ Common:
 - d - Rectangle
 - f - Parallel Channel
 - g - Vertical line
-- z - Trend line
+- z - Ray
+- x - Trend line
 
 Reply:
 - w - Backward
