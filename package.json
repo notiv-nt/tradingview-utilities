@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "parcel serve src/index.js --no-hmr",
-    "build": "parcel build src/index.js --no-minify"
+    "build": "parcel build src/index.js --no-minify",
+    "clean": "rm -rf node_modules/ .cache"
   },
   "dependencies": {
     "parcel-bundler": "^1.12.4"

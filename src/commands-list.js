@@ -11,8 +11,10 @@ export const TOOLBAR_COMMANDS = {
   KeyF: '.tv-floating-toolbar__widget:nth-child(4) span',
   // Vertical line
   KeyG: '.tv-floating-toolbar__widget:nth-child(5) span',
-  // Trend line
+  // Ray
   KeyZ: '.tv-floating-toolbar__widget:nth-child(6) span',
+  // Trend line
+  KeyX: '.tv-floating-toolbar__widget:nth-child(7) span',
 };
 
 export const OBJECT_COMMANDS = {
