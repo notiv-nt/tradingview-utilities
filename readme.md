@@ -16,3 +16,11 @@ Reply:
 - w - Backward
 - e - Forward
 - t - Start / Pause
+
+## Build:
+
+```bash
+npm install -g parcel-bundler
+
+npm run build
+```

@@ -1,5 +1,5 @@
 import { log } from './utils';
-import Mode, { MODES } from './Mode';
+import Mode from './Mode';
 import './fullscreen-patcher';
 import './styles';
 import Command from './Command';
