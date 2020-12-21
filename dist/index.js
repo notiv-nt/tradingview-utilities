@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"utils.js":[function(require,module,exports) {
+})({"FOZT":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -165,7 +165,7 @@ var isOnInput = function isOnInput(e) {
 };
 
 exports.isOnInput = isOnInput;
-},{}],"Mode.js":[function(require,module,exports) {
+},{}],"O5w5":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -254,7 +254,7 @@ var Mode = /*#__PURE__*/function () {
 var _default = new Mode();
 
 exports.default = _default;
-},{}],"fullscreen-patcher.js":[function(require,module,exports) {
+},{}],"R1vy":[function(require,module,exports) {
 var interval = setInterval(function () {
   var el = document.querySelector('div[data-name="fullscreen"]');
 
@@ -268,7 +268,7 @@ var interval = setInterval(function () {
     el.click(0);
   }
 }, 20);
-},{}],"styles.js":[function(require,module,exports) {
+},{}],"XEZO":[function(require,module,exports) {
 var styles = "\n#overlap-manager-root [data-id=\"Change Interval\"],\n#overlap-manager-root [data-name=\"load-layout-dialog\"]\n{\n  display: none !important;\n}\n";
 var el = document.createElement('style');
 el.innerHTML = styles;
@@ -290,7 +290,7 @@ document.body.appendChild(el); // Patch for KeyW (. on dvorak)
 
   check();
 })();
-},{}],"commands-list.js":[function(require,module,exports) {
+},{}],"ubMF":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -337,6 +337,14 @@ var UI_COMMANDS = [// Reset scale
   fn: function fn() {
     return (0, _utils.runInWindow)('TradingViewApi.activeChart().removeAllShapes()');
   }
+}, // Symbol switch menu
+{
+  check: function check(e) {
+    return e.code === 'Backquote';
+  },
+  fn: function fn() {
+    return document.querySelector('#header-toolbar-symbol-search').click();
+  }
 }];
 exports.UI_COMMANDS = UI_COMMANDS;
 var REPLY_COMMANDS = [{
@@ -362,7 +370,7 @@ var REPLY_COMMANDS = [{
   }
 }];
 exports.REPLY_COMMANDS = REPLY_COMMANDS;
-},{"./utils":"utils.js"}],"Command.js":[function(require,module,exports) {
+},{"./utils":"FOZT"}],"yXEK":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -487,7 +495,7 @@ var Commands = /*#__PURE__*/function () {
 }();
 
 exports.default = Commands;
-},{"./utils":"utils.js","./commands-list":"commands-list.js","./Mode":"Mode.js"}],"index.js":[function(require,module,exports) {
+},{"./utils":"FOZT","./commands-list":"ubMF","./Mode":"O5w5"}],"Focm":[function(require,module,exports) {
 "use strict";
 
 var _utils = require("./utils");
@@ -511,5 +519,5 @@ window.addEventListener('load', function () {
     command.setMode(mode);
   });
 });
-},{"./utils":"utils.js","./Mode":"Mode.js","./fullscreen-patcher":"fullscreen-patcher.js","./styles":"styles.js","./Command":"Command.js"}]},{},["index.js"], null)
+},{"./utils":"FOZT","./Mode":"O5w5","./fullscreen-patcher":"R1vy","./styles":"XEZO","./Command":"yXEK"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.js.map

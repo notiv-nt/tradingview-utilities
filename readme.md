@@ -11,6 +11,7 @@ Common:
 - g - Vertical line
 - z - Ray
 - x - Trend line
+- Backquote - Open symbol switch menu
 
 Reply:
 - w - Backward

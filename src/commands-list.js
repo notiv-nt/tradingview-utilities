@@ -33,6 +33,12 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyQ' && e.shiftKey,
     fn: () => runInWindow('TradingViewApi.activeChart().removeAllShapes()'),
   },
+
+  // Symbol switch menu
+  {
+    check: (e) => e.code === 'Backquote',
+    fn: () => document.querySelector('#header-toolbar-symbol-search').click(),
+  },
 ];
 
 export const REPLY_COMMANDS = [
