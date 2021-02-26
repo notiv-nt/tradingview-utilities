@@ -21,7 +21,7 @@ Reply:
 ## Build:
 
 ```bash
-npm install -g parcel-bundler
+npm i -g parcel-bundler
 
 npm run build
 ```

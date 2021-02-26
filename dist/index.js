@@ -459,7 +459,7 @@ var Commands = /*#__PURE__*/function () {
       Object.entries(_commandsList.OBJECT_COMMANDS).forEach(function (cmd) {
         if (e.code === cmd[0] && !(0, _utils.isAnyMetaKey)(e)) {
           (0, _utils.prevent)(e);
-          var btn = document.querySelector(".tv-floating-toolbar.tv-linetool-properties-toolbar .tv-floating-toolbar__widget ".concat(cmd[1]));
+          var btn = document.querySelector(".tv-floating-toolbar.tv-grouped-floating-toolbar .floating-toolbar-react-widgets ".concat(cmd[1]));
           btn && btn.click();
         }
       });

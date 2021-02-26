@@ -67,7 +67,9 @@ export default class Commands {
       if (e.code === cmd[0] && !isAnyMetaKey(e)) {
         prevent(e);
 
-        const btn = document.querySelector(`.tv-floating-toolbar.tv-linetool-properties-toolbar .tv-floating-toolbar__widget ${cmd[1]}`);
+        const btn = document.querySelector(
+          `.tv-floating-toolbar.tv-grouped-floating-toolbar .floating-toolbar-react-widgets ${cmd[1]}`
+        );
         btn && btn.click();
       }
     });
