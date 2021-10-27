@@ -1,12 +1,12 @@
 import { log } from './utils';
 
-const elementRemoveInterval = (selector) => {
+const hideElement = (selector) => {
   function elementWatcher() {
     const element = document.querySelector(selector);
 
-    if (element) {
-      log(`Remove element with selector "${selector}"`);
-      element.remove();
+    if (element && element.style.display !== 'none') {
+      log(`Hide element with selector "${selector}"`);
+      element.style.display = 'none';
     }
 
     // If (later) there will be a lot of these pathers, move to a separate class with only 1 requestAnimationFrame
@@ -17,10 +17,10 @@ const elementRemoveInterval = (selector) => {
 };
 
 // Patch for KeyW (, on dvorak), remove 'change interval' dialog
-export const keyWPatcher = () => elementRemoveInterval('[data-dialog-name="change-interval-dialog"]');
+export const keyWPatcher = () => hideElement('[data-dialog-name="change-interval-dialog"]');
 
 // Patch for KeyE (. on dvorak), remove 'load layout' dialog
-export const keyEPatcher = () => elementRemoveInterval('[data-outside-boundary-for="load-layout-dialog"]');
+export const keyEPatcher = () => hideElement('[data-outside-boundary-for="load-layout-dialog"]');
 
 // Click on 'Toggle Maximize chart' on load
 export function fullScreenPatcher() {

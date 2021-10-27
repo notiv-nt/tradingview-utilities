@@ -4,17 +4,6 @@ export const log = (...args) => {
   console.log.apply(console, ['\x1b[34m%s\x1b[0m', LOG_MESSAGE_PREFIX, ...args]);
 };
 
-export const runInWindow = (str) => {
-  const script = document.createElement('script');
-  script.innerText = str;
-  document.body.appendChild(script);
-
-  // Just cleanup, idk why, but let it be
-  setTimeout(() => {
-    document.body.removeChild(script);
-  }, 400);
-};
-
 export const prevent = (e) => {
   e.stopPropagation();
   e.preventDefault();
@@ -25,26 +14,18 @@ export const withoutAnyMetaKey = (e) => !e.altKey && !e.ctrlKey && !e.metaKey &&
 
 export const isOnInputField = (e) => e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName);
 
-export const openDrawingToolbarDropdownByIndex = (index) => {
-  const command = `
-    document.querySelector('#drawing-toolbar > div > div > div > div > div > span:nth-child(${index}) [data-role="menu-handle"]').click();
-  `;
+export const clickOnElement = (selector) => {
+  let element = document.querySelector(`${selector}`);
 
-  runInWindow(command);
+  if (!element) {
+    return console.warn(`${LOG_MESSAGE_PREFIX}: Selector not found ${selector}`);
+  }
+
+  element.click();
 };
 
-export const delayedClickBySelector = (selector) => {
-  const command = `
-    requestAnimationFrame(() => {
-      let element = document.querySelector('${selector}');
-
-      if (!element) {
-        return console.warn('${LOG_MESSAGE_PREFIX}: Selector not found ${selector}')
-      }
-
-      element.click();
-    });
-  `;
-
-  runInWindow(command);
+export const openDrawingToolbarDropdownByIndex = (index) => {
+  clickOnElement(
+    `#drawing-toolbar > div > div > div > div > div > span:nth-child(${index}) [data-role="menu-handle"]`,
+  );
 };

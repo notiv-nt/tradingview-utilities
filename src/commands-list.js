@@ -1,9 +1,4 @@
-import {
-  delayedClickBySelector,
-  openDrawingToolbarDropdownByIndex,
-  runInWindow,
-  withoutAnyMetaKey,
-} from './utils';
+import { clickOnElement, openDrawingToolbarDropdownByIndex, withoutAnyMetaKey } from './utils';
 
 export const UI_COMMANDS = [
   // Select Horizontal Line
@@ -11,7 +6,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyA' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolHorzLine"]');
+      clickOnElement('[data-name="LineToolHorzLine"]');
     },
   },
 
@@ -20,7 +15,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyS' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolHorzRay"]');
+      clickOnElement('[data-name="LineToolHorzRay"]');
     },
   },
 
@@ -29,7 +24,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyD' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(4);
-      delayedClickBySelector('[data-name="LineToolRectangle"]');
+      clickOnElement('[data-name="LineToolRectangle"]');
     },
   },
 
@@ -38,7 +33,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyF' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolParallelChannel"]');
+      clickOnElement('[data-name="LineToolParallelChannel"]');
     },
   },
 
@@ -47,7 +42,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyG' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolVertLine"]');
+      clickOnElement('[data-name="LineToolVertLine"]');
     },
   },
 
@@ -56,7 +51,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyZ' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolRay"]');
+      clickOnElement('[data-name="LineToolRay"]');
     },
   },
 
@@ -65,7 +60,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyX' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(2);
-      delayedClickBySelector('[data-name="LineToolTrendLine"]');
+      clickOnElement('[data-name="LineToolTrendLine"]');
     },
   },
 
@@ -74,7 +69,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyV' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(7);
-      delayedClickBySelector('[data-name="LineToolRiskRewardLong"]');
+      clickOnElement('[data-name="LineToolRiskRewardLong"]');
     },
   },
 
@@ -83,7 +78,7 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyB' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(7);
-      delayedClickBySelector('[data-name="LineToolRiskRewardShort"]');
+      clickOnElement('[data-name="LineToolRiskRewardShort"]');
     },
   },
 
@@ -92,32 +87,35 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'KeyC' && withoutAnyMetaKey(e),
     exec: () => {
       openDrawingToolbarDropdownByIndex(3);
-      delayedClickBySelector('[data-name="LineToolFibRetracement"]');
+      clickOnElement('[data-name="LineToolFibRetracement"]');
     },
   },
 
   // Reset scale
   {
     check: (e) => e.code === 'KeyR' && withoutAnyMetaKey(e),
-    exec: () => delayedClickBySelector('.chart-container.active .js-btn-group-reset-scale > div'),
+    exec: () => clickOnElement('.chart-container.active .js-btn-group-reset-scale > div'),
   },
 
   // Remove all shapes
   {
     check: (e) => e.code === 'KeyQ' && e.shiftKey,
-    exec: () => runInWindow('TradingViewApi.activeChart().removeAllShapes()'),
+    exec: () => {
+      clickOnElement(`#drawing-toolbar > div > div > div > div > div:nth-child(4) [data-role="menu-handle"]`);
+      clickOnElement('[data-name="remove-drawing-tools"]');
+    },
   },
 
   // Remove selected shapes
   {
     check: (e) => e.code === 'KeyQ' && withoutAnyMetaKey(e),
-    exec: () => delayedClickBySelector('.tv-floating-toolbar [data-name="remove"]'),
+    exec: () => clickOnElement('.tv-floating-toolbar [data-name="remove"]'),
   },
 
   // Symbol switch menu
   {
     check: (e) => e.code === 'Backquote',
-    exec: () => delayedClickBySelector('#header-toolbar-symbol-search'),
+    exec: () => clickOnElement('#header-toolbar-symbol-search'),
   },
 ];
 
@@ -126,7 +124,7 @@ export const REPLY_COMMANDS = [
   {
     check: (e) => e.code === 'KeyW' && withoutAnyMetaKey(e),
     exec: () =>
-      delayedClickBySelector(
+      clickOnElement(
         `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(1) > div`,
       ),
   },
@@ -135,7 +133,7 @@ export const REPLY_COMMANDS = [
   {
     check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e),
     exec: () =>
-      delayedClickBySelector(
+      clickOnElement(
         `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(3) > div`,
       ),
   },
@@ -144,7 +142,7 @@ export const REPLY_COMMANDS = [
   {
     check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e),
     exec: () =>
-      delayedClickBySelector(
+      clickOnElement(
         `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(2) > div`,
       ),
   },
