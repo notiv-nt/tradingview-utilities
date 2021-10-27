@@ -7,7 +7,7 @@ class Mode {
   constructor() {
     this.mode = null;
     this.onChangeEvents = [];
-    this.interval = null;
+    this.setModeInterval = null;
     this.checkModeInterval = 200;
 
     this.setMode();
@@ -37,7 +37,7 @@ class Mode {
   }
 
   startTimer() {
-    this.interval = setInterval(() => {
+    this.setModeInterval = setInterval(() => {
       const newMode = this.getCurrentMode();
 
       if (this.mode === MODES.DEFAULT && newMode === MODES.REPLY) {
@@ -51,7 +51,7 @@ class Mode {
   }
 
   destroy() {
-    clearInterval(this.interval);
+    clearInterval(this.setModeInterval);
   }
 }
 
