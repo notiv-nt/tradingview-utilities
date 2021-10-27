@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "watch": "parcel serve src/index.js --no-cache --no-hmr",
-    "build": "parcel build src/index.js --no-cache --no-minify",
-    "clean": "rm -rf node_modules/ .cache"
+    "watch": "parcel serve src/index.js --no-hmr",
+    "build": "parcel build src/index.js --no-optimize",
+    "clean": "rm -rf node_modules .parcel-cache"
   }
 }
