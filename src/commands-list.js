@@ -99,7 +99,7 @@ export const UI_COMMANDS = [
   // Reset scale
   {
     check: (e) => e.code === 'KeyR' && withoutAnyMetaKey(e),
-    exec: () => document.querySelector('.chart-container.active .js-btn-group-reset-scale > div').click(),
+    exec: () => delayedClickBySelector('.chart-container.active .js-btn-group-reset-scale > div'),
   },
 
   // Remove all shapes
@@ -117,7 +117,7 @@ export const UI_COMMANDS = [
   // Symbol switch menu
   {
     check: (e) => e.code === 'Backquote',
-    exec: () => document.querySelector('#header-toolbar-symbol-search').click(),
+    exec: () => delayedClickBySelector('#header-toolbar-symbol-search'),
   },
 ];
 
