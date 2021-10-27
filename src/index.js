@@ -1,8 +1,11 @@
 import { log } from './utils';
 import Mode from './Mode';
-import './fullscreen-patcher';
-import './styles';
 import Command from './Command';
+import { fullScreenPatcher, keyEPatcher, keyWPatcher } from './patches';
+
+keyWPatcher();
+keyEPatcher();
+fullScreenPatcher();
 
 window.addEventListener('load', () => {
   log('Current MODE:', Mode.getCurrentMode());

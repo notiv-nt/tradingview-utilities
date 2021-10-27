@@ -1,27 +1,43 @@
 ## Shortcuts:
 
 Common:
-- q - Remove selected shapes
-- Q - Remove all shapes
-- r - Reset scale
-- a - Horizontal line
-- s - Horizontal ray
-- d - Rectangle
-- f - Parallel Channel
-- g - Vertical line
-- z - Ray
-- x - Trend line
-- Backquote - Open symbol switch menu
 
-Reply:
-- w - Backward
-- e - Forward
-- t - Start / Pause
+- q — Remove selected shapes
+- Q — Remove all shapes
+- r — Reset scale
+- a — Horizontal line
+- s — Horizontal ray
+- d — Rectangle
+- f — Parallel Channel
+- g — Vertical line
+- z — Ray
+- x — Trend line
+- v — Long Position
+- b — Short Position
+- c — Fib Retracement
+- Backquote — Open symbol switch menu
+
+Reply Mode Only:
+
+- w — Jump to ... (backward)
+- e — Forward (by a candle)
+- t — Start / Pause
 
 ## Build:
 
-```bash
-npm i -g parcel-bundler
+<details>
+  <summary>Install node & parcel (only if you don't have)</summary>
 
+[nodejs.org](https://nodejs.org/)
+
+```bash
+sudo npm i -g parcel
+```
+
+</details>
+
+Run:
+
+```bash
 npm run build
 ```

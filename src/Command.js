@@ -1,6 +1,6 @@
-import { prevent, isAnyMetaKey, isOnInput } from './utils';
+import { prevent, isOnInput, withoutAnyMetaKey } from './utils';
 import { log } from './utils';
-import { TOOLBAR_COMMANDS, OBJECT_COMMANDS, UI_COMMANDS, REPLY_COMMANDS } from './commands-list';
+import { UI_COMMANDS, REPLY_COMMANDS } from './commands-list';
 import { MODES } from './Mode';
 
 export default class Commands {
@@ -21,12 +21,10 @@ export default class Commands {
       return;
     }
 
-    if (e.code.match('Digit') && !isAnyMetaKey(e)) {
+    if (e.code.match('Digit') && withoutAnyMetaKey(e)) {
       this.checkDigit(e);
     }
 
-    this.checkElementsToolbar(e);
-    this.checkObjectCommands(e);
     this.checkUiCommands(e);
 
     if (this.mode === MODES.REPLY) {
@@ -49,30 +47,6 @@ export default class Commands {
     }
 
     elem.click();
-  }
-
-  checkElementsToolbar(e) {
-    Object.entries(TOOLBAR_COMMANDS).forEach((cmd) => {
-      if (e.code === cmd[0] && !isAnyMetaKey(e)) {
-        prevent(e);
-
-        const btn = document.querySelector(`.tv-floating-toolbar ${cmd[1]}`);
-        btn && btn.click();
-      }
-    });
-  }
-
-  checkObjectCommands(e) {
-    Object.entries(OBJECT_COMMANDS).forEach((cmd) => {
-      if (e.code === cmd[0] && !isAnyMetaKey(e)) {
-        prevent(e);
-
-        const btn = document.querySelector(
-          `.tv-floating-toolbar.tv-grouped-floating-toolbar .floating-toolbar-react-widgets ${cmd[1]}`
-        );
-        btn && btn.click();
-      }
-    });
   }
 
   checkUiCommands(e) {

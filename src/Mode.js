@@ -8,7 +8,7 @@ class Mode {
     this.mode = null;
     this.onChangeEvents = [];
     this.interval = null;
-    this.intervalDelay = 200;
+    this.checkModeInterval = 200;
 
     this.setMode();
     this.startTimer();
@@ -47,7 +47,7 @@ class Mode {
       if (this.mode === MODES.REPLY && newMode === MODES.DEFAULT) {
         this.setMode(MODES.DEFAULT);
       }
-    }, this.intervalDelay);
+    }, this.checkModeInterval);
   }
 
   destroy() {
