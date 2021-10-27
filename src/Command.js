@@ -1,4 +1,4 @@
-import { prevent, isOnInput, withoutAnyMetaKey } from './utils';
+import { prevent, isOnInputField, withoutAnyMetaKey } from './utils';
 import { log } from './utils';
 import { UI_COMMANDS, REPLY_COMMANDS } from './commands-list';
 import { MODES } from './Mode';
@@ -15,56 +15,45 @@ export default class Commands {
     this.mode = mode;
   }
 
-  onKeyDown(e) {
+  onKeyDown(event) {
     // Skip input
-    if (isOnInput(e)) {
+    if (isOnInputField(event)) {
       return;
     }
 
-    if (e.code.match('Digit') && withoutAnyMetaKey(e)) {
-      this.checkDigit(e);
+    if (event.code.match('Digit') && withoutAnyMetaKey(event)) {
+      this.checkDigit(event);
     }
 
-    this.checkUiCommands(e);
+    const checkAndExecCommand = (command) => {
+      if (command.check(event)) {
+        prevent(event);
+        command.exec();
+      }
+    };
+
+    UI_COMMANDS.forEach((command) => checkAndExecCommand(command));
 
     if (this.mode === MODES.REPLY) {
-      this.checkReplyCommands(e);
+      REPLY_COMMANDS.forEach((command) => checkAndExecCommand(command));
     }
   }
 
-  checkDigit(e) {
-    prevent(e);
+  checkDigit(event) {
+    prevent(event);
 
     if (!document.querySelector('#header-toolbar-intervals')) {
       return log('#header-toolbar-intervals not found');
     }
 
-    const index = e.code.replace('Digit', '');
-    const elem = document.querySelector('#header-toolbar-intervals').children[index - 1];
+    const index = event.code.replace('Digit', '');
+    const element = document.querySelector('#header-toolbar-intervals').children[index - 1];
 
-    if (!elem) {
+    if (!element) {
       return log('Element was not found', index);
     }
 
-    elem.click();
-  }
-
-  checkUiCommands(e) {
-    UI_COMMANDS.forEach((cmd) => {
-      if (cmd.check(e)) {
-        prevent(e);
-        cmd.fn();
-      }
-    });
-  }
-
-  checkReplyCommands(e) {
-    REPLY_COMMANDS.forEach((cmd) => {
-      if (cmd.check(e)) {
-        prevent(e);
-        cmd.fn();
-      }
-    });
+    element.click();
   }
 
   destroy() {

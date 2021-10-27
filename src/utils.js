@@ -23,7 +23,7 @@ export const prevent = (e) => {
 
 export const withoutAnyMetaKey = (e) => !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey;
 
-export const isOnInput = (e) => e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName);
+export const isOnInputField = (e) => e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName);
 
 export const openDrawingToolbarDropdownByIndex = (index) => {
   const command = `
