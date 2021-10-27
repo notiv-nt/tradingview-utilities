@@ -40,17 +40,19 @@ export default class Commands {
   }
 
   checkDigit(event) {
+    const toolbarId = '#header-toolbar-intervals';
+
     prevent(event);
 
-    if (!document.querySelector('#header-toolbar-intervals')) {
-      return log('#header-toolbar-intervals not found');
+    if (!document.querySelector(toolbarId)) {
+      return log(`${toolbarId} not found`);
     }
 
-    const index = event.code.replace('Digit', '');
-    const element = document.querySelector('#header-toolbar-intervals').children[index - 1];
+    const index = parseInt(event.code.replace('Digit', ''), 10);
+    const element = document.querySelector(toolbarId).children[index - 1];
 
     if (!element) {
-      return log('Element was not found', index);
+      return log(`Element "${toolbarId} children [${index}]" was not found`);
     }
 
     element.click();
