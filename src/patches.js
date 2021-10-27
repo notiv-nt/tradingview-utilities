@@ -9,6 +9,7 @@ const elementRemoveInterval = (selector) => {
       element.remove();
     }
 
+    // If (later) there will be a lot of these pathers, move to a separate class with only 1 requestAnimationFrame
     requestAnimationFrame(elementWatcher);
   }
 
