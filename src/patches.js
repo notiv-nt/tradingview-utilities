@@ -29,10 +29,14 @@ export function fullScreenPatcher() {
     return;
   }
 
-  const element = document.querySelector('div[data-name="fullscreen"]');
+  (function elementWatcher() {
+    const element = document.querySelector('div[data-name="fullscreen"]');
 
-  if (element && !element.className.toLowerCase().includes('isactive')) {
-    log('Patch fullscreen chart layout');
-    element.click(0);
-  }
+    if (element && !element.className.toLowerCase().includes('isactive')) {
+      log('Patch fullscreen chart layout');
+      return element.click(0);
+    }
+
+    requestAnimationFrame(elementWatcher);
+  })();
 }
