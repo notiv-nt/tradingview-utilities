@@ -18,7 +18,8 @@ export const clickOnElement = (selector) => {
   let element = document.querySelector(`${selector}`);
 
   if (!element) {
-    return console.warn(`${LOG_MESSAGE_PREFIX}: Selector not found ${selector}`);
+    console.log(`${LOG_MESSAGE_PREFIX}: Selector not found ${selector}`);
+    return;
   }
 
   element.click();
