@@ -3,7 +3,7 @@ import { log } from './utils';
 import { UI_COMMANDS, REPLY_COMMANDS } from './commands-list';
 import { MODES } from './Mode';
 
-export default class Commands {
+export default class Command {
   constructor(mode) {
     this.mode = mode;
     this.onKeyDown = this.onKeyDown.bind(this);
