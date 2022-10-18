@@ -15,6 +15,7 @@ Common:
 - v — Long Position
 - b — Short Position
 - c — Fib Retracement
+- w — Enter reply mode
 - Backquote — Open symbol switch menu
 
 Reply Mode Only:

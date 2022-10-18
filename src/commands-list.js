@@ -1,4 +1,5 @@
 import { clickOnElement, openDrawingToolbarDropdownByIndex, withoutAnyMetaKey } from './utils';
+import Mode, { MODES } from './Mode';
 
 export const UI_COMMANDS = [
   // Select Horizontal Line
@@ -117,6 +118,13 @@ export const UI_COMMANDS = [
     check: (e) => e.code === 'Backquote',
     exec: () => clickOnElement('#header-toolbar-symbol-search'),
   },
+
+  // Jump to ... (backward)
+  {
+    check: (e) => e.code === 'KeyW' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.DEFAULT,
+    exec: () => clickOnElement('#header-toolbar-replay'),
+  },
+
 ];
 
 export const REPLY_COMMANDS = [
