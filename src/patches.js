@@ -40,3 +40,22 @@ export function fullScreenPatcher() {
     requestAnimationFrame(elementWatcher);
   })();
 }
+
+// Auto hide replay's Confirmation dialog
+export function autoHideConfirmationDialog() {
+  const text = 'You are in chart replay mode. Do you want to exit this mode?';
+
+  (function elementWatcher() {
+    const dialog = document.querySelector('div[data-name="confirm-dialog"]');
+
+    if (dialog && dialog.innerText.includes(text)) {
+      const button = dialog.querySelector('button[name="yes"]');
+
+      if (button) {
+        button.click();
+      }
+    }
+
+    requestAnimationFrame(elementWatcher);
+  })();
+}
