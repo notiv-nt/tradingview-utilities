@@ -23,9 +23,9 @@ class Mode {
   }
 
   getCurrentMode() {
-    const toolbar = document.querySelector('.tv-replay-toolbar');
+    const toolbar = document.querySelector('[class*="replayToolbar"]');
 
-    if (toolbar && !toolbar.classList.contains('i-hidden')) {
+    if (toolbar) {
       return MODES.REPLY;
     } else {
       return MODES.DEFAULT;

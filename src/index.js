@@ -6,7 +6,7 @@ import * as patches from './patches';
 patches.keyWPatcher();
 patches.keyEPatcher();
 patches.fullScreenPatcher();
-patches.autoHideConfirmationDialog();
+// patches.autoHideConfirmationDialog();
 
 window.addEventListener('load', () => {
   log('Current MODE:', Mode.getCurrentMode());

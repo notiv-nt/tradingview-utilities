@@ -133,16 +133,7 @@ export const REPLY_COMMANDS = [
     check: (e) => e.code === 'KeyW' && withoutAnyMetaKey(e),
     exec: () =>
       clickOnElement(
-        `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(1) > div`,
-      ),
-  },
-
-  // Forward (by a candle)
-  {
-    check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e),
-    exec: () =>
-      clickOnElement(
-        `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(3) > div`,
+        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(1) span`,
       ),
   },
 
@@ -151,7 +142,16 @@ export const REPLY_COMMANDS = [
     check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e),
     exec: () =>
       clickOnElement(
-        `.tv-floating-toolbar.tv-replay-toolbar .tv-floating-toolbar__widget:nth-child(2) > div`,
+        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(2) span`,
+      ),
+  },
+
+  // Forward (by a candle)
+  {
+    check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e),
+    exec: () =>
+      clickOnElement(
+        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(4) span`,
       ),
   },
 ];
