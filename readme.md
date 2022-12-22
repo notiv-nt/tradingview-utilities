@@ -16,6 +16,7 @@ Common:
 - b — Short Position
 - c — Fib Retracement
 - w — Enter reply mode
+- n — Copy crosshair price to clipboard
 - Backquote — Open symbol switch menu
 
 Reply Mode Only:

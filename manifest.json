@@ -6,6 +6,12 @@
   "icons": {
     "512": "icon.png"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["/static/static.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["https://www.tradingview.com/chart*", "https://ru.tradingview.com/chart*"],

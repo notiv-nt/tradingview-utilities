@@ -2,6 +2,7 @@ import { log } from './utils';
 import Mode from './Mode';
 import Command from './Command';
 import * as patches from './patches';
+import { initCrosshair } from './crosshair';
 
 patches.keyWPatcher();
 patches.keyEPatcher();
@@ -17,4 +18,6 @@ window.addEventListener('load', () => {
     log('Changed MODE to', mode);
     command.setMode(mode);
   });
+
+  initCrosshair();
 });

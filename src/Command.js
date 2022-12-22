@@ -1,6 +1,6 @@
 import { prevent, isOnInputField, withoutAnyMetaKey } from './utils';
 import { log } from './utils';
-import { UI_COMMANDS, REPLY_COMMANDS } from './commands-list';
+import { UI_COMMANDS } from './commands-list';
 import { MODES } from './Mode';
 
 export default class Command {
@@ -33,10 +33,6 @@ export default class Command {
     };
 
     UI_COMMANDS.forEach((command) => checkAndExecCommand(command));
-
-    if (this.mode === MODES.REPLY) {
-      REPLY_COMMANDS.forEach((command) => checkAndExecCommand(command));
-    }
   }
 
   checkDigit(event) {

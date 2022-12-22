@@ -1,5 +1,6 @@
 import { clickOnElement, openDrawingToolbarDropdownByIndex, withoutAnyMetaKey } from './utils';
 import Mode, { MODES } from './Mode';
+import { getCrosshairPrice } from './crosshair';
 
 export const UI_COMMANDS = [
   // Select Horizontal Line
@@ -125,33 +126,27 @@ export const UI_COMMANDS = [
     exec: () => clickOnElement('#header-toolbar-replay'),
   },
 
-];
+  // Copy crosshair price to clipboard
+  {
+    check: (e) => e.code === 'KeyN' && withoutAnyMetaKey(e),
+    exec: () => navigator.clipboard.writeText(getCrosshairPrice()),
+  },
 
-export const REPLY_COMMANDS = [
   // Jump to ... (backward)
   {
-    check: (e) => e.code === 'KeyW' && withoutAnyMetaKey(e),
-    exec: () =>
-      clickOnElement(
-        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(1) span`,
-      ),
+    check: (e) => e.code === 'KeyW' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.REPLY,
+    exec: () => clickOnElement(`[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(1) span`),
   },
 
   // Start / Pause
   {
-    check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e),
-    exec: () =>
-      clickOnElement(
-        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(2) span`,
-      ),
+    check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.REPLY,
+    exec: () => clickOnElement(`[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(2) span`),
   },
 
   // Forward (by a candle)
   {
-    check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e),
-    exec: () =>
-      clickOnElement(
-        `[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(4) span`,
-      ),
+    check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.REPLY,
+    exec: () => clickOnElement(`[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(4) span`),
   },
 ];
