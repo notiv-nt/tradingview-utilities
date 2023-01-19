@@ -141,7 +141,7 @@ export const UI_COMMANDS = [
   // Start / Pause
   {
     check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.REPLY,
-    exec: () => clickOnElement(`[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(2) span`),
+    exec: () => clickOnElement(`[class*="replayToolbar"] > [class*="controlsPanel"] > div:nth-child(3) span`),
   },
 
   // Forward (by a candle)
