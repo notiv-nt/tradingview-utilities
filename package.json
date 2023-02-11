@@ -3,6 +3,7 @@
     "dev": "parcel serve src/index.js --no-hmr",
     "build": "parcel build src/index.js",
     "clean": "rm -rf node_modules .parcel-cache",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "zip": "zip -r extension.zip ./dist ./static manifest.json"
   }
 }
