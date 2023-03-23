@@ -36,7 +36,7 @@ export default class Command {
   }
 
   checkDigit(event) {
-    const toolbarId = '#header-toolbar-intervals';
+    const toolbarId = '#header-toolbar-intervals > div';
 
     prevent(event);
 
