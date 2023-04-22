@@ -27,7 +27,7 @@ export const clickOnElement = (selector) => {
 
 export const openDrawingToolbarDropdownByIndex = (index) => {
   clickOnElement(
-    `#drawing-toolbar > div > div > div > div > div > span:nth-child(${index}) [data-role="menu-handle"]`,
+    `#drawing-toolbar > div > div > div > div > div > span:nth-child(${index}) button[data-tooltip]`,
   );
 };
 
