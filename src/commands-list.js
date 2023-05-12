@@ -103,7 +103,7 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyQ' && e.shiftKey,
     exec: () => {
-      clickOnElement(`#drawing-toolbar > div > div > div > div > div:nth-child(4) [data-role="menu-handle"]`);
+      clickOnElement(`#drawing-toolbar > div > div > div > div > div:nth-child(4) > div > div > button`);
       clickOnElement('[data-name="remove-drawing-tools"]');
     },
   },
