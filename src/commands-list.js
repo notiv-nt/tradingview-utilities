@@ -25,7 +25,7 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyD' && withoutAnyMetaKey(e),
     exec: () => {
-      openDrawingToolbarDropdownByIndex(4);
+      openDrawingToolbarDropdownByIndex(6);
       clickOnElement('[data-name="LineToolRectangle"]');
     },
   },
@@ -70,7 +70,7 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyV' && withoutAnyMetaKey(e),
     exec: () => {
-      openDrawingToolbarDropdownByIndex(7);
+      openDrawingToolbarDropdownByIndex(5);
       clickOnElement('[data-name="LineToolRiskRewardLong"]');
     },
   },
@@ -79,7 +79,7 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyB' && withoutAnyMetaKey(e),
     exec: () => {
-      openDrawingToolbarDropdownByIndex(7);
+      openDrawingToolbarDropdownByIndex(5);
       clickOnElement('[data-name="LineToolRiskRewardShort"]');
     },
   },
