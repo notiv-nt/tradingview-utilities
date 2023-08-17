@@ -25,11 +25,11 @@ export const clickOnElement = (selector) => {
   element.click();
 };
 
-export const openDrawingToolbarDropdownByIndex = (index) => {
-  clickOnElement(
-    `#drawing-toolbar > div > div > div > div > div > span:nth-child(${index}) button[data-tooltip]`,
-  );
-};
+export const selectDrawingTool = (index, name) => {
+  // document.querySelectorAll('#drawing-toolbar [class*=group] span [class*=control] > button[data-tooltip]').forEach((i) => { i.click(); });
+  clickOnElement(`#drawing-toolbar [class*=group] span:nth-child(${index}) [class*=control]> button[data-tooltip]`)
+  clickOnElement(`[data-name="${name}"]`);
+}
 
 export function injectScript(file_path, tag) {
   const node = document.getElementsByTagName(tag)[0];

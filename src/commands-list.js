@@ -1,4 +1,4 @@
-import { clickOnElement, openDrawingToolbarDropdownByIndex, withoutAnyMetaKey } from './utils';
+import { clickOnElement, selectDrawingTool, withoutAnyMetaKey } from './utils';
 import Mode, { MODES } from './Mode';
 import { getCrosshairPrice } from './crosshair';
 
@@ -6,91 +6,61 @@ export const UI_COMMANDS = [
   // Select Horizontal Line
   {
     check: (e) => e.code === 'KeyA' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolHorzLine"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolHorzLine'),
   },
 
   // Select Horizontal Ray
   {
     check: (e) => e.code === 'KeyS' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolHorzRay"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolHorzRay'),
   },
 
   // Select Rectangle
   {
     check: (e) => e.code === 'KeyD' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(6);
-      clickOnElement('[data-name="LineToolRectangle"]');
-    },
+    exec: () => selectDrawingTool(6, 'LineToolRectangle'),
   },
 
   // Select Parallel Channel
   {
     check: (e) => e.code === 'KeyF' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolParallelChannel"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolParallelChannel'),
   },
 
   // Select Vertical line
   {
     check: (e) => e.code === 'KeyG' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolVertLine"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolVertLine'),
   },
 
   // Select Ray
   {
     check: (e) => e.code === 'KeyZ' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolRay"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolRay'),
   },
 
   // Select Trend line
   {
     check: (e) => e.code === 'KeyX' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(2);
-      clickOnElement('[data-name="LineToolTrendLine"]');
-    },
+    exec: () => selectDrawingTool(2, 'LineToolTrendLine'),
   },
 
   // Select Long Position
   {
     check: (e) => e.code === 'KeyV' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(5);
-      clickOnElement('[data-name="LineToolRiskRewardLong"]');
-    },
+    exec: () => selectDrawingTool(5, 'LineToolRiskRewardLong'),
   },
 
   // Select Short Position
   {
     check: (e) => e.code === 'KeyB' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(5);
-      clickOnElement('[data-name="LineToolRiskRewardShort"]');
-    },
+    exec: () => selectDrawingTool(5, 'LineToolRiskRewardShort'),
   },
 
   // Select Fib Retracement
   {
     check: (e) => e.code === 'KeyC' && withoutAnyMetaKey(e),
-    exec: () => {
-      openDrawingToolbarDropdownByIndex(3);
-      clickOnElement('[data-name="LineToolFibRetracement"]');
-    },
+    exec: () => selectDrawingTool(3, 'LineToolFibRetracement'),
   },
 
   // Reset scale
