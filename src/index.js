@@ -8,6 +8,7 @@ patches.keyWPatcher();
 patches.keyEPatcher();
 patches.fullScreenPatcher();
 patches.autoHideConfirmationDialog();
+patches.cleanupSearchInput();
 
 window.addEventListener('load', () => {
   log('Current MODE:', Mode.getCurrentMode());

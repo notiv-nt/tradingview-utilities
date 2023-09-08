@@ -59,3 +59,16 @@ export function autoHideConfirmationDialog() {
     requestAnimationFrame(elementWatcher);
   })();
 }
+
+export function cleanupSearchInput() {
+  (function loop() {
+    const input = document.querySelector('[data-name="symbol-search-items-dialog"] input[data-role="search"]');
+
+    if (input && input.value.includes('`')) {
+      log(`Cleanup search input"`);
+      input.value = input.value.replaceAll('`', '');
+    }
+
+    requestAnimationFrame(loop);
+  })();
+}
