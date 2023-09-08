@@ -1,4 +1,4 @@
-import { prevent, isOnInputField, withoutAnyMetaKey } from './utils';
+import { prevent, isOnInputField, withoutAnyMetaKey, clickOnElement } from './utils';
 import { log } from './utils';
 import { UI_COMMANDS } from './commands-list';
 import { MODES } from './Mode';
@@ -23,6 +23,10 @@ export default class Command {
 
     if (event.code.match('Digit') && withoutAnyMetaKey(event)) {
       this.checkDigit(event);
+    }
+
+    if (event.code.match('Digit') && event.altKey) {
+      this.checkDigitWithAlt(event);
     }
 
     const checkAndExecCommand = (command) => {
@@ -52,6 +56,20 @@ export default class Command {
     }
 
     element.click();
+  }
+
+  checkDigitWithAlt(event) {
+    clickOnElement('.widgetbar-widget-watchlist [data-name="watchlists-button"]');
+
+    prevent(event);
+
+    const index = parseInt(event.code.replace('Digit', ''), 10) - 1;
+    const elements = document.querySelectorAll('[data-name="menu-inner"] div[class*="item-"]:not([class*="withIcon-"]):not([class*="countVisible-"])');
+    if (elements[index]) {
+      elements[index].click();
+    } else {
+      clickOnElement('.widgetbar-widget-watchlist [data-name="watchlists-button"]')
+    }
   }
 
   destroy() {
