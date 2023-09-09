@@ -27,9 +27,11 @@ export const clickOnElement = (selector) => {
 
 export const selectDrawingTool = (index, name) => {
   // document.querySelectorAll('#drawing-toolbar [class*=group] span [class*=control] > button[data-tooltip]').forEach((i) => { i.click(); });
-  clickOnElement(`#drawing-toolbar [class*=group] span:nth-child(${index}) [class*=control]> button[data-tooltip]`)
+  clickOnElement(
+    `#drawing-toolbar [class*=group] span:nth-child(${index}) [class*=control]> button[data-tooltip]`,
+  );
   clickOnElement(`[data-name="${name}"]`);
-}
+};
 
 export function injectScript(file_path, tag) {
   const node = document.getElementsByTagName(tag)[0];
@@ -37,4 +39,12 @@ export function injectScript(file_path, tag) {
   script.setAttribute('type', 'text/javascript');
   script.setAttribute('src', file_path);
   node.appendChild(script);
+}
+
+export function waitFor(t, i) {
+  const n = () => {
+    if (t()) return i();
+    requestAnimationFrame(n);
+  };
+  n();
 }
