@@ -91,7 +91,7 @@ export default class Command {
     clickOnElement('#header-toolbar-chart-styles button');
     const index = parseInt(event.code.replace('Digit', ''), 10);
     const types = {
-      1: 'bar',
+      // 1: 'bar',
       2: 'candle',
       3: 'ha',
     };

@@ -48,3 +48,15 @@ export function waitFor(t, i) {
   };
   n();
 }
+
+export function flagCurrentSymbol() {
+  clickOnElement('[data-name="legend-flag-action"][title*="flag symbol" i] [class*="uiMarker"]');
+  requestAnimationFrame(() => {
+    const popups = document.querySelectorAll('#overlap-manager-root > div');
+    for (const popup of popups) {
+      if (popup.querySelector('label[class*="colorSelectButton"] input[name="color-selector"]')) {
+        popup.remove();
+      }
+    }
+  });
+}

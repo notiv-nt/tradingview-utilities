@@ -1,4 +1,4 @@
-import { clickOnElement, selectDrawingTool, withoutAnyMetaKey } from './utils';
+import { clickOnElement, flagCurrentSymbol, selectDrawingTool, withoutAnyMetaKey } from './utils';
 import Mode, { MODES } from './Mode';
 import { getCrosshairPrice } from './crosshair';
 
@@ -7,6 +7,12 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyA' && withoutAnyMetaKey(e),
     exec: () => selectDrawingTool(2, 'LineToolHorzLine'),
+  },
+
+  // Flag current symbol
+  {
+    check: (e) => e.code === 'KeyE' && withoutAnyMetaKey(e) && Mode.getCurrentMode() === MODES.DEFAULT,
+    exec: () => flagCurrentSymbol(),
   },
 
   // Select Horizontal Ray
