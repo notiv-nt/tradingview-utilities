@@ -25,10 +25,6 @@ export default class Command {
       this.checkDigitWithAlt(event);
     }
 
-    if (event.code.match('Digit') && event.shiftKey) {
-      this.checkDigitWithShift(event);
-    }
-
     if (event.code.match('Digit') && withoutAnyMetaKey(event)) {
       this.checkDigit(event);
     }
@@ -84,21 +80,6 @@ export default class Command {
         }
       },
     );
-  }
-
-  checkDigitWithShift(event) {
-    prevent(event);
-    clickOnElement('#header-toolbar-chart-styles button');
-    const index = parseInt(event.code.replace('Digit', ''), 10);
-    const types = {
-      // 1: 'bar',
-      2: 'candle',
-      3: 'ha',
-    };
-    if (!types[index])  {
-      return;
-    }
-    clickOnElement(`[data-name="menu-inner"] > [data-value="${types[index]}"]`);
   }
 
   destroy() {

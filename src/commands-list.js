@@ -1,6 +1,6 @@
-import { clickOnElement, flagCurrentSymbol, selectDrawingTool, withoutAnyMetaKey } from './utils';
 import Mode, { MODES } from './Mode';
 import { getCrosshairPrice } from './crosshair';
+import { clickOnElement, flagCurrentSymbol, rotateChartType, selectDrawingTool, withoutAnyMetaKey } from './utils';
 
 export const UI_COMMANDS = [
   // Select Horizontal Line
@@ -88,6 +88,12 @@ export const UI_COMMANDS = [
   {
     check: (e) => e.code === 'KeyQ' && withoutAnyMetaKey(e),
     exec: () => clickOnElement('.tv-floating-toolbar [data-name="remove"]'),
+  },
+
+  // Remove selected shapes
+  {
+    check: (e) => e.code === 'KeyT' && withoutAnyMetaKey(e),
+    exec: () => rotateChartType(),
   },
 
   // Symbol switch menu

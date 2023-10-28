@@ -60,3 +60,31 @@ export function flagCurrentSymbol() {
     }
   });
 }
+
+export function rotateChartType() {
+  clickOnElement('#header-toolbar-chart-styles button');
+
+  const types = [
+    // 'bar',
+    'candle',
+    'ha',
+  ];
+
+  const elements = [
+    ...document.querySelectorAll(`[data-name="menu-inner"] > [data-role="menuitem"][data-value]`),
+  ];
+
+  const filteredElements = elements.filter((el) => {
+    return types.some((t) => el.getAttribute('data-value') === t);
+  });
+
+  const activeIndex = filteredElements.findIndex((el) => el.className.includes('isActive'));
+
+  if (activeIndex === -1 || !filteredElements[activeIndex + 1]) {
+    filteredElements[0].click();
+    return log('Select first available chart type');
+  }
+
+  log(`Select chart type ${types[activeIndex + 1]}`);
+  filteredElements[activeIndex + 1].click();
+}
