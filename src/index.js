@@ -3,6 +3,7 @@ import Mode from './Mode';
 import Command from './Command';
 import * as patches from './patches';
 import { initCrosshair } from './crosshair';
+import { insertStyles } from './styles';
 
 patches.keyWPatcher();
 patches.keyEPatcher();
@@ -21,4 +22,5 @@ window.addEventListener('load', () => {
   });
 
   initCrosshair();
+  insertStyles();
 });
